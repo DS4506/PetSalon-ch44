@@ -36,15 +36,15 @@ function register(){
     getElementById("txtBreed").value;
     let inputService = document.
     getElementById("txtService").value;
-
-    
-    // Creating the obj
+// Creating the obj
     let newPet = new pet(inputName,inputAge,inputGender,inputBreed,inputService);
  //push the object
  petSalon.pets.push(newPet);
  // display the pets array on the console
- console. log(petSalon.pets);
+ displayPetCards();
 }
+
+function init(){
 
 // creating pets using constructor
 let p1 = new pet("Scooby",60,"Male","Pittbull","Haircut");
@@ -52,4 +52,7 @@ let p2 = new pet("Jerome",50,"Male","Frenchy","Nail trim");
 let p3 = new pet("Keshia",45,"Female","Germansheperad","Massage");
 //pushing pets into the pets arrary
 petSalon.pets.push(p1,p2,p3);
-console.log(petSalon.pets);
+displayPetCards();
+}
+
+window.onload=init; //waits for render the HTML
