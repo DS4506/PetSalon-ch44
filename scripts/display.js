@@ -7,13 +7,14 @@ function displayPetCards(){
     console.log(pet);
  // create the HTML template
  card+= `
- <div>
- <p> Name: ${pet.name}</p>
- <p> Age: ${pet.age}</p>
- <p> Gender: ${pet.gender}</p>
- <p> Breed: ${pet.breed}</P>
- <p> Service: ${pet.service}</P>
- </div>
+ <tr id="${pet.id}">
+ <td> Name: ${pet.name}</td>
+ <td> Age: ${pet.age}</td>
+ <td> Gender: ${pet.gender}</td>
+ <td> Breed: ${pet.breed}</td>
+ <td> Service: ${pet.service}</td>
+ <td> <button onclick="deletePet(${pet.id})">🗑️</button></td>
+ </tr>
  `
  }
  DIV.innerHTML=card;
