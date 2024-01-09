@@ -15,12 +15,13 @@ let petSalon = {
 }
 let counter=0
 // object constructor (function)
-function pet(name,age,gender,breed,service){
+function pet(name,age,gender,breed,service,mood){
     this.name=name;
     this.age=age;
     this.gender=gender;
     this.breed=breed;
     this.service=service;
+    this.mood=mood;
     this.id=counter++;
 }
 
@@ -49,9 +50,10 @@ function register(){
     let inputGender = document.getElementById("txtGender").value;
     let inputBreed = document.getElementById("txtBreed").value;
     let inputService = document.getElementById("txtService").value;
+    let inputMood = document.getElementById("txtMood").value;
 
 // Creating the obj
-    let newPet = new pet(inputName,inputAge,inputGender,inputBreed,inputService);
+    let newPet = new pet(inputName,inputAge,inputGender,inputBreed,inputService,inputMood);
  //push the object
  petSalon.pets.push(newPet);
 if(isValid(newPet)==true){
@@ -74,9 +76,9 @@ function deletePet(petID){
 
 function init(){
 // creating pets using constructor
-let p1 = new pet("Scooby",60,"Male","Pittbull","Haircut");
-let p2 = new pet("Jerome",50,"Male","Frenchy","Nail trim");
-let p3 = new pet("Keshia",45,"Female","Germansheperad","Massage");
+let p1 = new pet("Scooby",60,"Male","Pittbull","HairCut","Agressive");
+let p2 = new pet("Jerome",50,"Male","Frenchy","Nail trim","Shy");
+let p3 = new pet("Keshia",45,"Female","Germansheperad","Massage","Excited");
 //pushing pets into the pets arrary
 petSalon.pets.push(p1,p2,p3);
 displayPetCards();
