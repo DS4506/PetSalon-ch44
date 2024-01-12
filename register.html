@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./scripts/hw1041.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="./scripts/hw1041.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="./scripts/Genius pet.css">
     <title>Document</title>
 </head>
 <header>
@@ -19,26 +20,28 @@
         </div>
         <div>
             <label>Age:</label>
-            <input type="text" id="txtAge">
+            <input class="from-control"   type="text" id="txtAge">
         </div>
         <div>
             <label>Gender:</label>
-            <input type="text" id="txtGender">
+            <input  class="from-control"  type="text" id="txtGender">
         </div>
         <div>
             <label>Breed</label>
-            <input type="text" id="txtBreed">
+            <input class="from-control" type="text" id="txtBreed">
         </div>
         <div>
-            <label>*Service</label>
-            <input type="text" id="txtService">
+            <label>*services</label>
+            <select class="from-select" id="txtServices">
+
+            </select>
         </div>
         <div>
             <label>Mood</label>
             <input type="text" id="txtMood">
         </div>
 
-        <button onclick="register()">Register</button>
+        <button class="btn btn-secondary" onclick="register()">Register</button>
         <div>
             <h2>Registered Pets</h2>
             <table class="table">
@@ -51,12 +54,15 @@
                                 <th>MOOD</th>
                             </tr>
                             <tbody id="pets">
-                                 </tbody>
+                            </tbody>
         
                     </table>
                 </main>
 <body>
-    <script src="./register.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./scripts/storageManager.js"></script>
+    <script src="./scripts/register.js"></script>
     <script src="./scripts/display.js"></script>
+    
 </body>
 </html>
