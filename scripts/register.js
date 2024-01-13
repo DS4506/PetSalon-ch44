@@ -15,13 +15,14 @@ let petSalon = {
 }
 let counter=0
 // object constructor (function)
-function pet(name,age,gender,breed,service,mood){
+function pet(name,age,gender,breed,service,mood,price){
     this.name=name;
     this.age=age;
     this.gender=gender;
     this.breed=breed;
     this.service=service;
     this.mood=mood;
+    this.price=price;
     this.id=counter++;
 }
 
@@ -49,17 +50,31 @@ function register(){
     let inputAge = document.getElementById("txtAge").value;
     let inputGender = document.getElementById("txtGender").value;
     let inputBreed = document.getElementById("txtBreed").value;
-    let inputService = document.getElementById("txtService").value;
+    let inputService = document.getElementById("txtServices").value;
     let inputMood = document.getElementById("txtMood").value;
+    
+
 
 // Creating the obj
-    let newPet = new pet(inputName,inputAge,inputGender,inputBreed,inputService,inputMood);
+    let newPet = new pet(inputName,inputAge,inputGender,inputBreed,inputService,inputMood,getServicePrice(inputService));
  //push the object
- petSalon.pets.push(newPet);
+    petSalon.pets.push(newPet);
 if(isValid(newPet)==true){
     // display the pets array on the console
- displayPetCards();
+    displayPetCards();
 }
+}
+
+function getServicePrice(servicesDescription){
+    let services =readArray();//get services list from LS
+    let price;
+    for(let i=0;i<services.length;i++){
+    let service = services[i];
+    if(service.description==servicesDescription){// finding the description
+    price=service.price;// assign the price
+    }
+}
+return Number(price);//assign the price
 }
 
 function deletePet(petID){
@@ -84,9 +99,9 @@ function addServices(){
 
 function init(){
 // creating pets using constructor
-let p1 = new pet("Scooby",60,"Male","Pittbull","HairCut","Agressive");
-let p2 = new pet("Jerome",50,"Male","Frenchy","Nail trim","Shy");
-let p3 = new pet("Keshia",45,"Female","Germansheperad","Massage","Excited");
+let p1 = new pet("Scooby",60,"Male","Pittbull","HairCut","Aggressive",getServicePrice("HairCut"));
+let p2 = new pet("Jerome",50,"Male","Frenchy","Nail trim","Shy",getServicePrice("Nail trim"));
+let p3 = new pet("Keshia",45,"Female","Germansheperad","Massage","Excited",getServicePrice("Massage"));
 //pushing pets into the pets arrary
 petSalon.pets.push(p1,p2,p3);
 displayPetCards();
